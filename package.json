@@ -1,0 +1,13 @@
+{
+  "name": "vk-stories",
+  "version": "1.0.0",
+  "description": "Wrapper for VK Connect for easy use stories",
+  "main": "index.js",
+  "repository": "https://github.com/hit2hat/vk-stories",
+  "author": "hit2hat",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@vkontakte/vkui-connect-promise": "^0.2.0-beta.0"
+  }
+}
