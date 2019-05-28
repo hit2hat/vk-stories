@@ -5,10 +5,20 @@
 Для того, чтобы установить модуль, используйте `yarn add vk-stories` или `npm i -S vk-stories`
 
 ## Быстрый старт 🚀
+### Инициализация (init)
+Обязательный метод перед началом работы.
+```js
+import VKStories from "vk-stories";
+import connect from "@vkontakte/vkui-connect-promise";
+
+VKStories.init(connect);
+```
+
 ### Генерация историй (generateStoryFromTemplate)
 Для генерации нужно передать ссылку на шаблон и поля, как это показано ниже.
 ```js
 import VKStories from "vk-stories";
+import connect from "@vkontakte/vkui-connect-promise";
 
 const fields = [
     {
@@ -21,6 +31,7 @@ const fields = [
     }
 ];
 
+VKStories.init(connect);
 VKStories.generateStoryFromTemplate(require("./assets/template.png"), fields)
     .then((story) => {
         // code
@@ -34,13 +45,18 @@ VKStories.generateStoryFromTemplate(require("./assets/template.png"), fields)
 В промисе вы получите результат загрузки (как если бы делали по документации).
 ```js
 import VKStories from "vk-stories";
+import connect from "@vkontakte/vkui-connect-promise";
 
+VKStories.init(connect);
 VKStories.shareStory(6999763, story, { add_to_news: true })
     .then((result) => {
         // code
     })
     .catch(console.error);
 ```
+
+## Работает с VK Stories 🙌
+*   [НЕсдам](https://vk.com/app6999763)
 
 ## Авторы 🎨
 *   [Степан Новожилов](https://vk.me/hit2hat)

@@ -1,7 +1,10 @@
-import connect from "@vkontakte/vkui-connect-promise";
-
 const VK_API_VERSION = "5.95";
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+
+let connect = null;
+const init = (newConnect) => {
+    connect = newConnect;
+};
 
 const shareStory = (app_id, story, { add_to_news = false, user_ids = [] }) => new Promise((resolve, reject) => {
     connect.send("VKWebAppGetAuthToken", { app_id, scope: "stories" })
@@ -68,4 +71,4 @@ const __makeFakeFile = (dataUrl, filename) => {
     return new File([u8arr], filename, { type: mime });
 };
 
-export default { shareStory, generateStoryFromTemplate };
+export default { init, shareStory, generateStoryFromTemplate };
