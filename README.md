@@ -59,4 +59,4 @@ VKStories.shareStory(6999763, story, { add_to_news: true })
 *   [НЕсдам](https://vk.com/app6999763)
 
 ## Авторы 🎨
-*   [Степан Новожилов](https://vk.me/hit2hat)
+*   [Степан Новожилов](https://vk.me/this.state.user)
