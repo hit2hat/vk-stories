@@ -40,7 +40,7 @@ const shareStory = (app_id, story, { add_to_news = false, user_ids = [] }) => ne
         .catch(() => reject({ error_code: 1, error_text: "Can't get access_token" }))
 });
 
-const generateStoryFromTemplate = (templateUrl, fields = []) => new Promise((resolve) => {
+const generateStoryFromTemplate = (templateUrl, fields = [], imageSrc = undefined) => new Promise((resolve) => {
     const canvas = document.createElement("canvas");
     canvas.width = 1080;
     canvas.height = 1920;
@@ -48,9 +48,10 @@ const generateStoryFromTemplate = (templateUrl, fields = []) => new Promise((res
     const ctx = canvas.getContext("2d");
 
     const background = new Image();
+    const image = new Image();
     background.onload = () => {
         ctx.drawImage(background, 0, 0);
-
+        if(imageSrc != indefined) ctx.drawImage(image, 50, 10);
         fields.forEach((field) => {
             ctx.font = field.font;
             ctx.textAlign = field.align;
@@ -61,6 +62,8 @@ const generateStoryFromTemplate = (templateUrl, fields = []) => new Promise((res
         resolve(canvas.toDataURL());
     };
     background.src = templateUrl;
+    image.src = imageSrc;
+    
 });
 
 // Helpers
